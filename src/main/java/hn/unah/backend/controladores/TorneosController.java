@@ -21,6 +21,11 @@ public class TorneosController {
     @Autowired
     private TorneosServiceImpl torneosServiceImpl;
 
+    @GetMapping("/test")
+    public String test(){
+        return "ok";
+    }
+
     @GetMapping("/")
     public List<Torneos> getAll(){
         return this.torneosServiceImpl.getAll();

@@ -41,16 +41,8 @@ public class TorneosServiceImpl implements TorneosService {
 
     @Override
     public Torneos update(Torneos torneo) {
-        Torneos torneoMod = this.torneosRepository.findById(torneo.getId()).get();
-        torneoMod.setNombre(torneo.getNombre());
-        torneoMod.setTitulo(torneo.getTitulo());
-        torneoMod.setInformacion(torneo.getInformacion());
-        torneoMod.setEstado(torneo.getEstado());
-        torneoMod.setLogo(torneo.getLogo());
-
-        this.torneosRepository.save(torneoMod);
-
-        return torneoMod;
+        this.torneosRepository.save(torneo);
+        return torneo;
     }
     
 }
