@@ -18,8 +18,6 @@ public class Torneos {
 
     private String nombre;
 
-    private String titulo;
-
     private String informacion;
 
     private int estado;
