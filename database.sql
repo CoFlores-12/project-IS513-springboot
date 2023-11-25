@@ -77,3 +77,10 @@ CREATE TABLE clasificatoriatorneo (
     FOREIGN KEY(idTorneo) REFERENCES torneos(id),
     FOREIGN KEY(idTorneo) REFERENCES equipos(idequipos)
 );
+
+--
+-- Volcado de datos para la tabla `torneos`
+--
+
+INSERT INTO `torneos` (`id`, `nombre`, `informacion`, `estado`, `fecha`, `logo`) VALUES
+(1, 'IS513', 'Proyecto de clase', 0, 'November, 2023', '03b0b151b42a829d87b3707368ec601d.jpg');
