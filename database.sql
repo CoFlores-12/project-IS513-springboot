@@ -42,12 +42,20 @@ CREATE TABLE partidos (
     FOREIGN KEY(ganador) REFERENCES equipos(idequipos)
 );
 
-CREATE TABLE goles (
-	id int AUTO_INCREMENT PRIMARY KEY,
-    idPartido int,
-    idPersona int,
-    FOREIGN KEY(idPartido) REFERENCES partidos(id),
-    FOREIGN KEY(idPersona) REFERENCES personas(id)
+
+
+CREATE TABLE rols (
+	idRol int AUTO_INCREMENT PRIMARY KEY,
+    descripcion varchar(50)
+);
+
+CREATE TABLE personas(
+	idPersona int AUTO_INCREMENT PRIMARY KEY,
+	nombre varchar(50),
+    apellido varchar (50),
+    IdRol int,
+    foto varchar(255),
+    FOREIGN KEY(idRol) REFERENCES rols(idRol)
 );
 
 CREATE TABLE goles (
@@ -55,6 +63,7 @@ CREATE TABLE goles (
     idPartido int,
     idEquipo int,
     idPersona int,
+    FOREIGN KEY(idPersona) REFERENCES personas(idPersona),
     FOREIGN KEY(idPartido) REFERENCES partidos(id),
     FOREIGN KEY(idEquipo) REFERENCES equipos(idequipos)
 );
