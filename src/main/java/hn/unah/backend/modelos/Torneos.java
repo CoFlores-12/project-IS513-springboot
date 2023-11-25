@@ -24,5 +24,7 @@ public class Torneos {
 
     private int estado;
 
+    private String fecha;
+
     private String logo;
 }
