@@ -18,5 +18,7 @@ public class Rols {
     private int id;
 
     private String descripcion;
-
+//@OneToMany
+//private list<personas> personas;
 }
+//relaciones en los modelos
