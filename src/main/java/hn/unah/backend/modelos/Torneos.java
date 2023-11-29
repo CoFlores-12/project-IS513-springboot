@@ -32,10 +32,6 @@ public class Torneos {
 
     private String logo;
 
-    @OneToMany
-    private List<Equipos> equipos;
-    
-
-
-    
+    @OneToMany(mappedBy = "torneo")
+    private List<EquiposdelTorneo> equiposdelTorneos;
 }

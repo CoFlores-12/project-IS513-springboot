@@ -3,6 +3,7 @@ package hn.unah.backend.modelos;
 import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,26 +30,30 @@ public class Partidos {
     @Id
     @Column(name="idpartido")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idaprtido;
-
-    
-    @JoinColumn(name="idtorneo")
-    private int idtorneo;
+    private int idpartido;
 
     @JsonFormat(pattern="YYYY-MM-DD")
     private Date fecha;
 
-    @JoinColumn(name="idequipo1")
-    private int idequipo1;
     
-    @JoinColumn(name="idequipo2")
-    private int idequipo2;
-    
-
     private int golesequipo1;
     
     private int golesequipo2;
 
-    private int ganador;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="idtorneo", referencedColumnName="idtorneo")
+    private Torneos torneo;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="idequipo1", referencedColumnName="idequipo")
+    private Equipos equipo1;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="idequipo2", referencedColumnName="idequipo")
+    private Equipos equipo2;
+    
 
 }

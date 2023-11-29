@@ -32,7 +32,7 @@ public class EquiposServiceImpl implements EquiposService{
             equipoActualizar.setNombre(equipo.getNombre());
             equipoActualizar.setAnioFundacion(equipo.getAnioFundacion());
             equipoActualizar.setPais(equipo.getPais());
-            equipoActualizar.setEscudo(equipo.getEscudo());
+            equipoActualizar.setUrllogo(equipo.getUrllogo());
 
             return this.equiposRepository.save(equipoActualizar);
         }

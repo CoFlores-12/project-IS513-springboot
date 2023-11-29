@@ -11,14 +11,16 @@ CREATE TABLE torneos (
 );
 
 CREATE TABLE equipos (
-	idEquipos int AUTO_INCREMENT PRIMARY KEY,
+	idEquipo int AUTO_INCREMENT PRIMARY KEY,
     nombre varchar(50),
     anioFundacion varchar(50),
     pais varchar(50),
-    escudo varchar(150),
-    idTorneo int ,
-    FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo)
+    urllogo varchar(150)
 );
+
+ALTER TABLE equipos
+ADD COLUMN idTorneo int,
+ADD FOREIGN KEY (idTorneo) REFERENCES torneos(idTorneo);
 
 CREATE TABLE equiposDelTorneo (
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -26,7 +28,7 @@ CREATE TABLE equiposDelTorneo (
     idEquipo int,
     puntos int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idTorneo) REFERENCES equipos(idequipos)
+    FOREIGN KEY(idEquipo) REFERENCES equipos(idEquipo)
 );
 
 CREATE TABLE partidos (
@@ -39,9 +41,9 @@ CREATE TABLE partidos (
     golesEquipo2 int,
     ganador int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idEquipo1) REFERENCES equipos(idequipos),
-    FOREIGN KEY(idEquipo2) REFERENCES equipos(idequipos),
-    FOREIGN KEY(ganador) REFERENCES equipos(idequipos)
+    FOREIGN KEY(idEquipo1) REFERENCES equipos(idEquipo),
+    FOREIGN KEY(idEquipo2) REFERENCES equipos(idEquipo),
+    FOREIGN KEY(ganador) REFERENCES equipos(idEquipo)
 );
 
 
@@ -67,7 +69,7 @@ CREATE TABLE goles (
     idPersona int,
     FOREIGN KEY(idPersona) REFERENCES personas(idPersona),
     FOREIGN KEY(idPartido) REFERENCES partidos(idPartido),
-    FOREIGN KEY(idEquipo) REFERENCES equipos(idequipos)
+    FOREIGN KEY(idEquipo) REFERENCES equipos(idEquipo)
 );
 
 CREATE TABLE clasificatoriatorneo (
@@ -77,7 +79,7 @@ CREATE TABLE clasificatoriatorneo (
     posicion int,
     grupo int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idTorneo) REFERENCES equipos(idequipos)
+    FOREIGN KEY(idTorneo) REFERENCES equipos(idEquipo)
 );
 
 --
@@ -86,3 +88,7 @@ CREATE TABLE clasificatoriatorneo (
 
 INSERT INTO `torneos` (`idTorneo`, `nombre`, `informacion`, `estado`, `fecha`, `logo`) VALUES
 (1, 'IS513', 'Proyecto de clase', 0, 'November, 2023', '03b0b151b42a829d87b3707368ec601d.jpg');
+--
+-- Volcado de datos para la tabla `equipos`
+--
+INSERT INTO `equipos` (`idEquipo`,`nombre`,`anioFundacion`,`pais`,`urllogo`) VALUES (1,'Barcelona',1998,'España','03b0b151b42a829d87b3707368ec601d.jpg');

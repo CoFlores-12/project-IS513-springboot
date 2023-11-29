@@ -2,6 +2,8 @@ package hn.unah.backend.servicios;
 
 import java.util.List;
 
+import hn.unah.backend.modelos.EquiposdelTorneo;
+import hn.unah.backend.modelos.EquiposdelTorneoDTO;
 import hn.unah.backend.modelos.Torneos;
 
 public interface TorneosService {
@@ -10,4 +12,5 @@ public interface TorneosService {
     public Torneos create(Torneos torneo);
     public Torneos update(Torneos torneo);
     public Boolean delete(int id);
+    public EquiposdelTorneo add(EquiposdelTorneoDTO equiposdelTorneoDTO);
 }
