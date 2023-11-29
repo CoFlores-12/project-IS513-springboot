@@ -11,13 +11,16 @@ CREATE TABLE torneos (
 );
 
 CREATE TABLE equipos (
-	idEquipos int AUTO_INCREMENT PRIMARY KEY,
+	id int AUTO_INCREMENT PRIMARY KEY,
     nombre varchar(50),
     anioFundacion varchar(50),
     pais varchar(50),
-    escudo varchar(150)
-    
+    urllogo varchar(150)
 );
+
+ALTER TABLE equipos
+ADD COLUMN idTorneo int,
+ADD FOREIGN KEY (idTorneo) REFERENCES torneos(id);
 
 CREATE TABLE equiposDelTorneo (
 	id int AUTO_INCREMENT PRIMARY KEY,
