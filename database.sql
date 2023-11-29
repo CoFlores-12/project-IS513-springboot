@@ -15,9 +15,8 @@ CREATE TABLE equipos (
     nombre varchar(50),
     anioFundacion varchar(50),
     pais varchar(50),
-    escudo varchar(150),
-    idTorneo int ,
-    FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo)
+    escudo varchar(150)
+    
 );
 
 CREATE TABLE equiposDelTorneo (
@@ -26,7 +25,7 @@ CREATE TABLE equiposDelTorneo (
     idEquipo int,
     puntos int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idTorneo) REFERENCES equipos(idequipos)
+    FOREIGN KEY(idEquipo) REFERENCES equipos(idequipos)
 );
 
 CREATE TABLE partidos (
@@ -86,3 +85,7 @@ CREATE TABLE clasificatoriatorneo (
 
 INSERT INTO `torneos` (`idTorneo`, `nombre`, `informacion`, `estado`, `fecha`, `logo`) VALUES
 (1, 'IS513', 'Proyecto de clase', 0, 'November, 2023', '03b0b151b42a829d87b3707368ec601d.jpg');
+--
+-- Volcado de datos para la tabla `equipos`
+--
+INSERT INTO `equipos` (`idEquipos`,`nombre`,`anioFundacion`,`pais`,`escudo`) VALUES (1,'Barcelona',1998,'España','03b0b151b42a829d87b3707368ec601d.jpg');
