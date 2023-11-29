@@ -1,6 +1,7 @@
 package hn.unah.backend.modelos;
 
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,9 +31,8 @@ public class EquiposdelTorneo {
     @JoinColumn(name="idtorneo", referencedColumnName="idtorneo")
     private Torneos torneo;
 
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name="idequipo", referencedColumnName="idequipos")
+    @OneToOne
+    @JoinColumn(name="idequipo", referencedColumnName="idequipo")
     private Equipos equipo;
 
 }

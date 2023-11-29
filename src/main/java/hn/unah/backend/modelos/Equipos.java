@@ -5,10 +5,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -25,9 +27,9 @@ import lombok.Setter;
 public class Equipos {
     
     @Id
-    @Column(name="idequipos")
+    @Column(name="idequipo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idEquipos;
+    private int idEquipo;
 
     private String nombre;
 
@@ -36,9 +38,6 @@ public class Equipos {
 
     private String pais;
 
-    private String escudo;
-
-    @OneToMany(mappedBy = "equipo")
-    private List<EquiposdelTorneo> equiposdelTorneos;
+    private String urllogo;
 
 }

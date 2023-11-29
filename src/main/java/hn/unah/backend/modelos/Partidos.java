@@ -48,11 +48,11 @@ public class Partidos {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="idequipo1", referencedColumnName="idequipos")
+    @JoinColumn(name="idequipo1", referencedColumnName="idequipo")
     private Equipos equipo1;
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="idequipo2", referencedColumnName="idequipos")
+    @JoinColumn(name="idequipo2", referencedColumnName="idequipo")
     private Equipos equipo2;
     
 
