@@ -17,6 +17,7 @@ public class Goles {
     @Id
     private int id;
     
+    //TODO relationships
     private int idpartido;
 
     private int idequipo1;

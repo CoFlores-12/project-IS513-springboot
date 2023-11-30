@@ -22,6 +22,7 @@ public class Personas {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="idpersona")
+
     private int idpersona; 
 
     private String nombre;
@@ -30,8 +31,14 @@ public class Personas {
     
     private String foto;
 
+
     @ManyToOne
     @JoinColumn(name="idrol")
     private Rols idrol;
+
+    private String fecha;
+    
+    private int idequipo;
+
     
 }

@@ -10,7 +10,6 @@ import hn.unah.backend.repositorios.PersonasRepository;
 import hn.unah.backend.servicios.PersonasService;
 
 @Service
-
 public class PersonasServiceImpl implements PersonasService {
 
     @Autowired
@@ -18,7 +17,10 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Override
     public Personas create(Personas personas) {
-        return this.personasRepository.save(personas);
+        //TODO: set rol
+        //TODO: set equipo
+        return personas;
+        //return this.personasRepository.save(personas);
     }
 
     @Override
@@ -54,6 +56,17 @@ public class PersonasServiceImpl implements PersonasService {
     @Override
     public List<Personas> getAll() {
         return this.personasRepository.findAll();
+    }
+
+    @Override
+    public List<Personas> getByEquipo(int idEquipo) {
+        return this.personasRepository.findByIdequipo(idEquipo);
+    }
+
+    @Override
+    public int getCount() {
+        List<Personas> people = this.personasRepository.findAll();
+        return people.size();
     }
     
 }

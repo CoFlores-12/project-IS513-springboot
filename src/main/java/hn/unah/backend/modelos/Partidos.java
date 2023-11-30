@@ -41,19 +41,23 @@ public class Partidos {
     private int golesequipo2;
 
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="idtorneo", referencedColumnName="idtorneo")
     private Torneos torneo;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="idequipo1", referencedColumnName="idequipo")
     private Equipos equipo1;
-    @JsonIgnore
+
+    
     @ManyToOne
     @JoinColumn(name="idequipo2", referencedColumnName="idequipo")
     private Equipos equipo2;
+    
+     @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="ganador", referencedColumnName="idequipo")
+    private Equipos ganador;
     
 
 }

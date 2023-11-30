@@ -1,7 +1,9 @@
 package hn.unah.backend.controladores;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,9 +19,17 @@ public class PersonasController {
     @Autowired
     private PersonasServiceImpl personasServiceImpl;
     
-    @PostMapping("/crear/persona")
+    @PostMapping("/crear")
     public Personas crear(@RequestBody Personas persona){
         return this.personasServiceImpl.create(persona);
+    }
+    @GetMapping("/getByEquipo/{idEquipo}")
+    public List<Personas> getAll(@PathVariable int idEquipo) {
+        return this.personasServiceImpl.getByEquipo(idEquipo);
+    }
+    @GetMapping("/getCount")
+    public int getCount(){
+        return this.personasServiceImpl.getCount();
     }
      /*  @DeleteMapping("/delete/personas")
     public Boolean delete(@PathVariable int id){
@@ -29,9 +39,6 @@ public class PersonasController {
     public Personas crear(@RequestBody Personas persona){
         return this.personasServiceImpl.create(persona);
     } 
-     @GetMapping("/")
-    public List<Personas> getAll(){
-        return this.personasServiceImpl.getAll();
-    }*/
+    */
 }
 //endpoints
