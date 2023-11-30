@@ -13,4 +13,5 @@ public interface TorneosService {
     public Torneos update(Torneos torneo);
     public Boolean delete(int id);
     public EquiposdelTorneo add(EquiposdelTorneoDTO equiposdelTorneoDTO);
+    public Torneos jugar(int idtorneo);
 }

@@ -18,6 +18,7 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Override
     public Personas create(Personas personas) {
+        //TODO: set rol
         return this.personasRepository.save(personas);
     }
 
