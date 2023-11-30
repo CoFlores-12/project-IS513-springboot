@@ -17,11 +17,12 @@ public class Clasificatoria {
      @Id
      private int id;
 
+     //TODO relationShip
      private int  idtorneo;
 
      private int posicion;
-     
-     private int grupo;
 
+     //TODO relationship with equipo
+     
 
 }

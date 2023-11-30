@@ -1,5 +1,6 @@
 package hn.unah.backend.modelos;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,9 +18,9 @@ import lombok.Setter;
 @Table(name="personas")
 public class Personas {
     @Id
-    //@column(name=id)
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int id;
+    @Column(name="idpersona")
+    private int idpersona;
 
     private String nombre;
     

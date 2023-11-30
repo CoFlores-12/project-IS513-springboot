@@ -22,9 +22,9 @@ public class EquiposController {
     @Autowired
     private EquiposServiceImpl equiposServiceImpl;
 
-    @PostMapping("/create")
-    public Equipos create(@RequestBody Equipos equipo){
-        return this.equiposServiceImpl.create(equipo);
+    @PostMapping("/create/{idTorneo}")
+    public Equipos create(@RequestBody Equipos equipo, @PathVariable int idTorneo) {
+        return this.equiposServiceImpl.create(equipo, idTorneo);
     }
 
     @GetMapping("/get/{id}")
@@ -46,4 +46,5 @@ public class EquiposController {
     public List<Equipos> getAll(){
         return this.equiposServiceImpl.getAll();
     }
+     
 }
