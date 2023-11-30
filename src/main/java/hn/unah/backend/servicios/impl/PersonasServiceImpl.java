@@ -3,11 +3,13 @@ package hn.unah.backend.servicios.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
 
 import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.repositorios.PersonasRepository;
 import hn.unah.backend.servicios.PersonasService;
+
+@Service
 
 public class PersonasServiceImpl implements PersonasService {
 

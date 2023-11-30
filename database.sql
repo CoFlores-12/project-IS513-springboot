@@ -57,7 +57,7 @@ CREATE TABLE personas(
 	idPersona int AUTO_INCREMENT PRIMARY KEY,
 	nombre varchar(50),
     apellido varchar (50),
-    IdRol int,
+    idRol int,
     foto varchar(255),
     FOREIGN KEY(idRol) REFERENCES rols(idRol)
 );
