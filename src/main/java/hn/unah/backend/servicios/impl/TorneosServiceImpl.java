@@ -73,6 +73,25 @@ public class TorneosServiceImpl implements TorneosService {
         return this.equiposdelTorneoRepository.save(equiposdelTorneo);
         
     }
+
+    @Override
+    public Torneos jugar(int idtorneo) {
+
+        Equipos equipoGrupoA1 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "A1");
+        Equipos equipoGrupoA2 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "A2");
+
+        Equipos equipoGrupoB1 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "B1");
+        Equipos equipoGrupoB2 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "B2");
+
+        Equipos equipoGrupoC1 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "C1");
+        Equipos equipoGrupoC2 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "C2");
+        Equipos equipoGrupoD1 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "D1");
+        Equipos equipoGrupoD2 = this.equiposRepository.findByGrupoYTorneo(idtorneo, "D2");
+
+
+
+        return this.torneosRepository.findById(idtorneo).get();
+    }
     
 }
 
