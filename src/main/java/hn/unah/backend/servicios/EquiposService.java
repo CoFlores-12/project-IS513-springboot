@@ -6,7 +6,7 @@ import hn.unah.backend.modelos.Equipos;
 
 public interface EquiposService {
     
-    public Equipos create(Equipos equipo);
+    public Equipos create(Equipos equipo, int id);
 
     public Equipos get(int idEquipo);
 

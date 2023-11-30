@@ -55,5 +55,10 @@ public class Partidos {
     @JoinColumn(name="idequipo2", referencedColumnName="idequipo")
     private Equipos equipo2;
     
+     @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="ganador", referencedColumnName="idequipo")
+    private Equipos ganador;
+    
 
 }

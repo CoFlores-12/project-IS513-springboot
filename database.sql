@@ -15,21 +15,15 @@ CREATE TABLE equipos (
     nombre varchar(50),
     anioFundacion varchar(50),
     pais varchar(50),
-    urllogo varchar(150)
+    urllogo varchar(150),
+    puntos int DEFAULT 0
 );
 
 ALTER TABLE equipos
 ADD COLUMN idTorneo int,
 ADD FOREIGN KEY (idTorneo) REFERENCES torneos(idTorneo);
 
-CREATE TABLE equiposDelTorneo (
-	id int AUTO_INCREMENT PRIMARY KEY,
-    idTorneo int,
-    idEquipo int,
-    puntos int,
-    FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idEquipo) REFERENCES equipos(idEquipo)
-);
+
 
 CREATE TABLE partidos (
 	idPartido int AUTO_INCREMENT PRIMARY KEY,

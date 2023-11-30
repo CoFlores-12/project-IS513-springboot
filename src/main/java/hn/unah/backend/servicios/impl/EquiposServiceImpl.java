@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.unah.backend.modelos.Equipos;
+import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.repositorios.EquiposRepository;
+import hn.unah.backend.repositorios.TorneosRepository;
 import hn.unah.backend.servicios.EquiposService;
 
 @Service
@@ -14,9 +16,14 @@ public class EquiposServiceImpl implements EquiposService{
 
     @Autowired
     private EquiposRepository equiposRepository;
+    @Autowired
+    private TorneosRepository torneosRepository;
 
     @Override
-    public Equipos create(Equipos equipo) {
+    public Equipos create(Equipos equipo, int idTorneo) {
+        Torneos torneo = this.torneosRepository.findById(idTorneo).get();
+        equipo.setTorneo(torneo);
+        //TODO crear posicion en clasificatoria
         return this.equiposRepository.save(equipo);
     }
 
@@ -53,5 +60,4 @@ public class EquiposServiceImpl implements EquiposService{
     public List<Equipos> getAll() {
         return this.equiposRepository.findAll();
     }
-    
 }
