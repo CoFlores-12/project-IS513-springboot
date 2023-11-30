@@ -56,5 +56,10 @@ public class PersonasServiceImpl implements PersonasService {
     public List<Personas> getAll() {
         return this.personasRepository.findAll();
     }
+
+    @Override
+    public List<Personas> getByEquipo(int idEquipo) {
+        return this.personasRepository.findByIdequipo(idEquipo);
+    }
     
 }

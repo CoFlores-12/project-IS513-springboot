@@ -10,4 +10,5 @@ public interface PersonasService {
     public Personas update(int idPersona, Personas personas);
     public boolean delete(int idPersona);
     public List<Personas> getAll();
+    public List<Personas> getByEquipo(int idEquipo);
 }

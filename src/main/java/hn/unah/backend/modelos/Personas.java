@@ -31,9 +31,10 @@ public class Personas {
     private String fecha;
     //@ManyToOne(mappedBy = "personas")
     //TODO relationship between personas and rols
-    private int idRol;
+    private int idrol;
 
     //TODO relationship between personas and transfers
     
+    private int idequipo;
     
 }

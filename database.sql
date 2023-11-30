@@ -19,11 +19,27 @@ CREATE TABLE equipos (
     puntos int DEFAULT 0
 );
 
+
+CREATE TABLE rols (
+	idRol int AUTO_INCREMENT PRIMARY KEY,
+    descripcion varchar(50)
+);
+
+CREATE TABLE personas(
+	idPersona int AUTO_INCREMENT PRIMARY KEY,
+	nombre varchar(50),
+    apellido varchar (50),
+    idrol int,
+    fecha varchar(50),
+    foto varchar(255),
+    idequipo int,
+    FOREIGN KEY(idrol) REFERENCES rols(idRol),
+    FOREIGN KEY(idequipo) REFERENCES equipos(idEquipo)
+);
+
 ALTER TABLE equipos
 ADD COLUMN idTorneo int,
 ADD FOREIGN KEY (idTorneo) REFERENCES torneos(idTorneo);
-
-
 
 CREATE TABLE partidos (
 	idPartido int AUTO_INCREMENT PRIMARY KEY,
@@ -42,19 +58,6 @@ CREATE TABLE partidos (
 
 
 
-CREATE TABLE rols (
-	idRol int AUTO_INCREMENT PRIMARY KEY,
-    descripcion varchar(50)
-);
-
-CREATE TABLE personas(
-	idPersona int AUTO_INCREMENT PRIMARY KEY,
-	nombre varchar(50),
-    apellido varchar (50),
-    IdRol int,
-    foto varchar(255),
-    FOREIGN KEY(idRol) REFERENCES rols(idRol)
-);
 
 CREATE TABLE goles (
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -86,3 +89,7 @@ INSERT INTO `torneos` (`idTorneo`, `nombre`, `informacion`, `estado`, `fecha`, `
 -- Volcado de datos para la tabla `equipos`
 --
 INSERT INTO `equipos` (`idEquipo`,`nombre`,`anioFundacion`,`pais`,`urllogo`) VALUES (1,'Barcelona',1998,'España','03b0b151b42a829d87b3707368ec601d.jpg');
+
+INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('1', 'Jugador');
+
+INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `IdRol`, `foto`, `fecha`, `idequipo`) VALUES (NULL, 'test', 'test', '1', 'blank.png', '2023', '1');
