@@ -18,6 +18,7 @@ public class PersonasServiceImpl implements PersonasService {
     @Override
     public Personas create(Personas personas) {
         //TODO: set rol
+        //TODO: set equipo
         return personas;
         //return this.personasRepository.save(personas);
     }
@@ -60,6 +61,12 @@ public class PersonasServiceImpl implements PersonasService {
     @Override
     public List<Personas> getByEquipo(int idEquipo) {
         return this.personasRepository.findByIdequipo(idEquipo);
+    }
+
+    @Override
+    public int getCount() {
+        List<Personas> people = this.personasRepository.findAll();
+        return people.size();
     }
     
 }

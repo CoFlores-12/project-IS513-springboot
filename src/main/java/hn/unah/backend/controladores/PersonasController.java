@@ -27,6 +27,10 @@ public class PersonasController {
     public List<Personas> getAll(@PathVariable int idEquipo) {
         return this.personasServiceImpl.getByEquipo(idEquipo);
     }
+    @GetMapping("/getCount")
+    public int getCount(){
+        return this.personasServiceImpl.getCount();
+    }
      /*  @DeleteMapping("/delete/personas")
     public Boolean delete(@PathVariable int id){
         return this.personasServiceImpl.delete(id);

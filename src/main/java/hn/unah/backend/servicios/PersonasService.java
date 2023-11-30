@@ -11,4 +11,5 @@ public interface PersonasService {
     public boolean delete(int idPersona);
     public List<Personas> getAll();
     public List<Personas> getByEquipo(int idEquipo);
+    public int getCount();
 }

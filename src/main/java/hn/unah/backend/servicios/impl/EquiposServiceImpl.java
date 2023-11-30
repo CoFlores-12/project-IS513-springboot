@@ -1,13 +1,16 @@
 package hn.unah.backend.servicios.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.unah.backend.modelos.Equipos;
+import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.repositorios.EquiposRepository;
+import hn.unah.backend.repositorios.PartidosRepository;
 import hn.unah.backend.repositorios.TorneosRepository;
 import hn.unah.backend.servicios.EquiposService;
 
@@ -18,6 +21,8 @@ public class EquiposServiceImpl implements EquiposService{
     private EquiposRepository equiposRepository;
     @Autowired
     private TorneosRepository torneosRepository;
+    @Autowired
+    private PartidosRepository partidosRepository;
 
     @Override
     public Equipos create(Equipos equipo, int idTorneo) {
@@ -59,5 +64,18 @@ public class EquiposServiceImpl implements EquiposService{
     @Override
     public List<Equipos> getAll() {
         return this.equiposRepository.findAll();
+    }
+
+    @Override
+    public int getCount() {
+        List<Equipos> result = this.equiposRepository.findAll();
+        return result.size();
+    }
+
+    @Override
+    public List<Partidos> getPartidos(int idEquipo) {
+        Equipos equipo = this.equiposRepository.findById(idEquipo).get();
+        List<Partidos> result = this.partidosRepository.findByEquipo1OrEquipo2(equipo, equipo);
+        return  result;
     }
 }
