@@ -17,7 +17,7 @@ public class PersonasController {
     @Autowired
     private PersonasServiceImpl personasServiceImpl;
     
-    @PostMapping("/crear/persona")
+    @PostMapping("/crear")
     public Personas crear(@RequestBody Personas persona){
         return this.personasServiceImpl.create(persona);
     }

@@ -26,8 +26,13 @@ public class Personas {
     private String apellido;
     
     private String foto;
+
+    private String fecha;
     //@ManyToOne(mappedBy = "personas")
+    //TODO relationship between personas and rols
     private int idRol;
+
+    //TODO relationship between personas and transfers
     
     
 }
