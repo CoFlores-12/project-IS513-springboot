@@ -41,7 +41,7 @@ public class Equipos {
 
     private String urllogo;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "idtorneo", referencedColumnName = "idtorneo")
     private Torneos torneo;
 
