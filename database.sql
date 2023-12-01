@@ -105,6 +105,33 @@ VALUES (1,'Barcelona','1998','España','03b0b151b42a829d87b3707368ec601d.jpg', '
 INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
 VALUES (2, 'equipo 2', '2023', 'Honduras', 'blank.png', '0', '1', 'A2');
 
+-- Creacion 8 equipos
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (1, 'Real Madrid', '1902', 'España', '584a9b47b080d7616d298778.png', '0', '1', 'A1');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (2, 'Girona', '1930', 'España', 'Girona-FC-PNG-Clipart-Background.png', '0', '1', 'A2');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (3, 'Atletico Madrid', '1903', 'España', 'logo-atletico-madrid-1536.png', '0', '1', 'B1');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (4, 'Barcelona', '1899', 'España', 'FC_Barcelona_(crest).svg.png', '0', '1', 'B2');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (5, 'Athletic', '1899', 'España', '584ad135b519ea740933a896.png', '0', '1', 'C1');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (6, '1909', '2023', 'España', 'Real-Sociedad-Logo.png', '0', '1', 'C2');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (7, 'Betis', '1907', 'España', 'real-betis-balompie-escudo-actual-de-marzo-logo-EBB3A9E4C1-seeklogo.com.png', '0', '1', 'D1');
+
+INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
+VALUES (8, 'Getafe', '1983', 'España', 'Getafe_CF_S_A_D_-logo-ECC0F2A882-seeklogo.com.png', '0', '1', 'D2');
+
+
+
 INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('1', 'Jugador');
 
 INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `IdRol`, `foto`, `fecha`, `idequipo`) VALUES (NULL, 'test', 'test', '1', 'blank.png', '2023', '1');
