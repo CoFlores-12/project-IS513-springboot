@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.modelos.Rols;
 import hn.unah.backend.repositorios.EquiposRepository;
@@ -79,6 +78,12 @@ public class PersonasServiceImpl implements PersonasService {
     public int getCount() {
         List<Personas> people = this.personasRepository.findAll();
         return people.size();
+    }
+
+    @Override
+    public List<Personas> getByEquipo(int idEquipo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getByEquipo'");
     }
     
 }
