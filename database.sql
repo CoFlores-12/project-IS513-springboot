@@ -95,4 +95,3 @@ INSERT INTO `torneos` (`idTorneo`, `nombre`, `informacion`, `estado`, `fecha`, `
 -- Volcado de datos para la tabla `equipos`
 --
 INSERT INTO `equipos` (`idEquipo`,`nombre`,`anioFundacion`,`pais`,`urllogo`) VALUES (1,'Barcelona',1998,'España','03b0b151b42a829d87b3707368ec601d.jpg');
-

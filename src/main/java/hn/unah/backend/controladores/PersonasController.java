@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.unah.backend.modelos.Personas;
-import hn.unah.backend.modelos.Rols;
+
 import hn.unah.backend.servicios.impl.PersonasServiceImpl;
 
 @RestController
@@ -20,6 +20,13 @@ import hn.unah.backend.servicios.impl.PersonasServiceImpl;
 public class PersonasController {
     @Autowired
     private PersonasServiceImpl personasServiceImpl;
+    
+
+    @GetMapping("/")
+    public List<Personas> getAll(){
+        return this.personasServiceImpl.getAll();
+    }
+
     
     @PostMapping("/crear")
     public Personas crear(@RequestBody Personas persona, int idRol){

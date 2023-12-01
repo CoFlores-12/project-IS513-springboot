@@ -80,6 +80,12 @@ public class PersonasServiceImpl implements PersonasService {
         List<Personas> people = this.personasRepository.findAll();
         return people.size();
     }
+
+    @Override
+    public List<Personas> getByEquipo(int idEquipo) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getByEquipo'");
+    }
     
 }
 
