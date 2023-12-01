@@ -112,4 +112,3 @@ INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `IdRol`, `foto`, `fec
 INSERT INTO `partidos` (`idPartido`, `fecha`, `idTorneo`, `idEquipo1`, `idEquipo2`, `golesEquipo1`, `golesEquipo2`, `ganador`) VALUES (NULL, '2023-11-30', '1', '1', '1', '2', '1', '1');
 
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (1, '1', '1', '1'), (2, '1', '2', '2');
->>>>>>> 660207bc73e7240f4980f5fdf85c52a1634cbc98
