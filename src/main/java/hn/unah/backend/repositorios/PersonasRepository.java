@@ -7,8 +7,10 @@ import java.util.List;
 
 
 public interface PersonasRepository extends JpaRepository <Personas, Integer> {
-    List<Personas> findByIdequipo(int idequipo);
+    //List<Personas> findByIdequipo(int idequipo);
     
 
     
 }
+
+ 

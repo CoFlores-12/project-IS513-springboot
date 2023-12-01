@@ -1,14 +1,10 @@
 package hn.unah.backend.modelos;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,23 +15,13 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="personas")
+@Table(name="fichajejugador")
 @Entity
-public class Personas {
-    
+public class FichajeJugador {
     @Id
-    @Column(name="idpersona")
+    @Column(name="idfichaje")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idpersona;
+    private int idfichaje;
     
-    private String nombre;
-    private String apellido;
-
-    private String foto;
-
-    @ManyToOne
-    @JoinColumn(name="idrol",referencedColumnName = "idRol")
-    private Rols idrol;
-
 
 }

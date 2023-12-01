@@ -57,15 +57,7 @@ CREATE TABLE partidos (
     FOREIGN KEY(ganador) REFERENCES equipos(idEquipo)
 );
 
-CREATE TABLE fichajejugador(
-    idfichaje int AUTO_INCREMENT PRIMARY KEY,
-    idPersona int,
-    idEquipoIn int,
-    idEquipoOut int,
-    FOREIGN KEY(idPersona) REFERENCES personas(idPersona),
-    FOREIGN KEY(idEquipoIn) REFERENCES equipos(idEquipo),
-    FOREIGN KEY(idEquipoOut) REFERENCES equipos(idEquipo)
-);
+
 
 
 CREATE TABLE goles (
@@ -86,6 +78,16 @@ CREATE TABLE clasificatoriatorneo (
     grupo int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
     FOREIGN KEY(idTorneo) REFERENCES equipos(idEquipo)
+);
+
+CREATE TABLE fichajejugador(
+idfichaje int AUTO_INCREMENT PRIMARY KEY,
+    idPersona int,
+    idEquipoIn int,
+    idEquipoOut int,
+    FOREIGN KEY(idPersona) REFERENCES personas(idPersona),
+    FOREIGN KEY(idEquipoIn) REFERENCES equipos(idEquipo),
+    FOREIGN KEY(idEquipoOut) REFERENCES equipos(idEquipo)
 );
 
 --

@@ -5,8 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Personas;
+import hn.unah.backend.modelos.Rols;
+import hn.unah.backend.repositorios.EquiposRepository;
 import hn.unah.backend.repositorios.PersonasRepository;
+import hn.unah.backend.repositorios.RolsRepository;
 import hn.unah.backend.servicios.PersonasService;
 
 @Service
@@ -14,13 +18,19 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Autowired
     private PersonasRepository personasRepository;
+    @Autowired
+    private RolsRepository rolsRepository;
+
+    @Autowired
+    private EquiposRepository equiposRepository;
 
     @Override
-    public Personas create(Personas personas) {
-        //TODO: set rol
-        //TODO: set equipo
-        return personas;
-        //return this.personasRepository.save(personas);
+    public Personas create(Personas personas ,int idRol) {
+        Rols rols =this.rolsRepository.findById(idRol).get();
+        personas.setIdrol(rols);
+
+        //return personas;
+        return this.personasRepository.save(personas);
     }
 
     @Override
@@ -58,10 +68,12 @@ public class PersonasServiceImpl implements PersonasService {
         return this.personasRepository.findAll();
     }
 
-    @Override
+    /*
+     * @Override
     public List<Personas> getByEquipo(int idEquipo) {
         return this.personasRepository.findByIdequipo(idEquipo);
     }
+     */
 
     @Override
     public int getCount() {
@@ -70,3 +82,5 @@ public class PersonasServiceImpl implements PersonasService {
     }
     
 }
+
+ 

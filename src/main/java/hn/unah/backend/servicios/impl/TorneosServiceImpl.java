@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 
 import hn.unah.backend.repositorios.EquiposRepository;
 import hn.unah.backend.repositorios.Golesrepository;
-import hn.unah.backend.repositorios.PersonasRepository;
+//import hn.unah.backend.repositorios.PersonasRepository;
 import hn.unah.backend.repositorios.TorneosRepository;
 import hn.unah.backend.modelos.Clasificatoria;
 import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Goles;
 import hn.unah.backend.modelos.Partidos;
-import hn.unah.backend.modelos.Personas;
+//import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.servicios.TorneosService;
@@ -24,8 +24,8 @@ public class TorneosServiceImpl implements TorneosService {
     @Autowired
     private TorneosRepository torneosRepository;
     
-     @Autowired
-     private PersonasRepository personasRepository;
+    // @Autowired
+     //private PersonasRepository personasRepository;
 
      @Autowired
      private Golesrepository golesrepository;
@@ -136,12 +136,12 @@ public class TorneosServiceImpl implements TorneosService {
             partidosA1A2.setGanador(equipoGrupoA1);
             equipoGrupoA1.setPuntos(equipoGrupoA1.getPuntos()+3);
             //TODO get all jugadores del equipo
-            List<Personas> jugadores = null;
+           // List<Personas> jugadores = null;
             for (int index = 0; index < golesA1; index++) {
                 Goles gol = new Goles();
-                gol.setIdequipo1(equipoGrupoA1);
-                gol.setIdpartido(partidosA1A2);
-                gol.setIdpersona(jugadores.get((int) Math.random(jugadores.size()-1)));
+                //gol.setIdequipo1(equipoGrupoA1);
+                //gol.setIdpartido(partidosA1A2);
+                //gol.setIdpersona(jugadores.get((int) Math.random(jugadores.size()-1)));
                 //TODO save Gol
             }
             this.equiposRepository.save(equipoGrupoA1);
@@ -151,12 +151,12 @@ public class TorneosServiceImpl implements TorneosService {
             equipoGrupoA2.setPuntos(equipoGrupoA2.getPuntos()+3);
             this.equiposRepository.save(equipoGrupoA2);
             //TODO get players
-            List<Personas> jugadores = null;
+           // List<Personas> jugadores = null;
             for (int index = 0; index < golesA2; index++) {
                 Goles gol = new Goles();
-                gol.setIdequipo1(equipoGrupoA2);
-                gol.setIdpartido(partidosA1A2);
-                gol.setIdpersona(jugadores.get((int) Math.random(jugadores.size()-1)));
+               // gol.setIdequipo1(equipoGrupoA2);
+                //gol.setIdpartido(partidosA1A2);
+                //gol.setIdpersona(jugadores.get((int) Math.random(jugadores.size()-1)));
                 //TODO save gol
             }
             //TODO set equipo to clasificatoria and position to 9
@@ -174,7 +174,6 @@ public class TorneosServiceImpl implements TorneosService {
        }
 
 
-muajajajajajajajajajajajaja voy a hackear todo 
         return torneo;
     }
     

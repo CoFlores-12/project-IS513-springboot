@@ -1,24 +1,35 @@
 package hn.unah.backend.modelos;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+
 @Setter
 @Getter
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
+@Table(name="rols")
 @Entity
 public class Rols {
     @Id
-    private int id;
+    @Column(name="idrol")
+    private int idrol;
 
     private String descripcion;
-//@OneToMany
-//private list<personas> personas;
+
+    @OneToMany(mappedBy = "idrol")
+    private List<Personas> personas;
+
+
+
 }
-//relaciones en los modelos
