@@ -122,7 +122,7 @@ INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`pu
 VALUES (5, 'Athletic', '1899', 'España', '584ad135b519ea740933a896.png', '0', '1', 'C1');
 
 INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
-VALUES (6, '1909', '2023', 'España', 'Real-Sociedad-Logo.png', '0', '1', 'C2');
+VALUES (6, 'Real Sociedad', '1909', 'España', 'Real-Sociedad-Logo.png', '0', '1', 'C2');
 
 INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
 VALUES (7, 'Betis', '1907', 'España', 'real-betis-balompie-escudo-actual-de-marzo-logo-EBB3A9E4C1-seeklogo.com.png', '0', '1', 'D1');
