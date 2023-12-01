@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.modelos.Rols;
 import hn.unah.backend.repositorios.EquiposRepository;

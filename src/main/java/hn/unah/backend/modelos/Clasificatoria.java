@@ -2,6 +2,8 @@ package hn.unah.backend.modelos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +19,13 @@ public class Clasificatoria {
      @Id
      private int id;
 
-     //TODO relationShip
      private int  idtorneo;
 
      private int posicion;
 
-     //TODO relationship with equipo
+     @OneToOne
+     @JoinColumn(name = "idequipo", referencedColumnName = "idequipo")
+     private Equipos equipo;
      
 
 }
