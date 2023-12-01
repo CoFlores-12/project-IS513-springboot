@@ -70,14 +70,13 @@ CREATE TABLE goles (
     FOREIGN KEY(idEquipo) REFERENCES equipos(idEquipo)
 );
 
-CREATE TABLE clasificatoriatorneo (
+CREATE TABLE clasificatoria (
 	id int AUTO_INCREMENT PRIMARY KEY,
     idTorneo int,
     idEquipo int,
     posicion int,
-    grupo int,
     FOREIGN KEY(idTorneo) REFERENCES torneos(idTorneo),
-    FOREIGN KEY(idTorneo) REFERENCES equipos(idEquipo)
+    FOREIGN KEY(idEquipo) REFERENCES equipos(idEquipo)
 );
 
 CREATE TABLE fichajejugador(
@@ -110,3 +109,5 @@ INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('1', 'Jugador');
 INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `IdRol`, `foto`, `fecha`, `idequipo`) VALUES (NULL, 'test', 'test', '1', 'blank.png', '2023', '1');
 
 INSERT INTO `partidos` (`idPartido`, `fecha`, `idTorneo`, `idEquipo1`, `idEquipo2`, `golesEquipo1`, `golesEquipo2`, `ganador`) VALUES (NULL, '2023-11-30', '1', '1', '1', '2', '1', '1');
+
+INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (1, '1', '1', '1'), (2, '1', '2', '2');

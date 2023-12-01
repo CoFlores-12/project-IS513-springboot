@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import hn.unah.backend.modelos.Clasificatoria;
+import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.servicios.impl.TorneosServiceImpl;
 
@@ -52,5 +53,13 @@ public class TorneosController {
         return this.torneosServiceImpl.delete(id);
     }
 
+    @GetMapping("/jugar/{id}")
+    public Torneos jugar(@PathVariable int id){
+        return this.torneosServiceImpl.jugar(id);
+    }
+    @GetMapping("/equiposClasificatoria/{id}")
+    public List<Clasificatoria> equiposClasificatoria(@PathVariable int id){
+        return this.torneosServiceImpl.equiposClasificatoria(id);
+    }
 
 }

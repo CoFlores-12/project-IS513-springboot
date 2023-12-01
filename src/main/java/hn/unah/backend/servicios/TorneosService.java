@@ -2,6 +2,7 @@ package hn.unah.backend.servicios;
 
 import java.util.List;
 
+import hn.unah.backend.modelos.Clasificatoria;
 import hn.unah.backend.modelos.Torneos;
 
 public interface TorneosService {
@@ -10,6 +11,6 @@ public interface TorneosService {
     public Torneos create(Torneos torneo);
     public Torneos update(Torneos torneo);
     public Boolean delete(int id);
-    
+    public List<Clasificatoria> equiposClasificatoria(int id);
     public Torneos jugar(int idtorneo);
 }

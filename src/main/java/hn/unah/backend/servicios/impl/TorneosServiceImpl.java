@@ -5,15 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import hn.unah.backend.repositorios.ClasificatoriaRepository;
 import hn.unah.backend.repositorios.EquiposRepository;
 import hn.unah.backend.repositorios.Golesrepository;
-//import hn.unah.backend.repositorios.PersonasRepository;
 import hn.unah.backend.repositorios.TorneosRepository;
 import hn.unah.backend.modelos.Clasificatoria;
 import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Goles;
-import hn.unah.backend.modelos.Partidos;
-//import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.servicios.TorneosService;
@@ -31,6 +29,9 @@ public class TorneosServiceImpl implements TorneosService {
      private Golesrepository golesrepository;
     @Autowired
     private EquiposRepository equiposRepository;
+
+    @Autowired
+    private ClasificatoriaRepository clasificatoriaRepository;
 
 
     @Override
@@ -175,6 +176,13 @@ public class TorneosServiceImpl implements TorneosService {
 
 
         return torneo;
+    }
+
+    @Override
+    public List<Clasificatoria> equiposClasificatoria(int id) {
+        List<Clasificatoria> clasificatorias = this.clasificatoriaRepository.findByIdtorneo(id);
+
+        return clasificatorias;
     }
     
 }
