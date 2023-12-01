@@ -1,6 +1,8 @@
 package hn.unah.backend.modelos;
 
-import org.hibernate.annotations.ManyToAny;
+
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,6 +35,7 @@ public class Personas {
 
     private String foto;
 
+@JsonIgnore
     @ManyToOne
     @JoinColumn(name="idrol",referencedColumnName = "idRol")
     private Rols idrol;

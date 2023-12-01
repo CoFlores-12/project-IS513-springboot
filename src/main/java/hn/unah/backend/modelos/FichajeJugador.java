@@ -29,7 +29,7 @@ public class FichajeJugador {
 
     @OneToOne
     @JoinColumn(name="idpersona")
-    private Personas idpPersonas;
+    private Personas idPersonas;
 
     @OneToOne
     @JoinColumn(name="idequipoin")
