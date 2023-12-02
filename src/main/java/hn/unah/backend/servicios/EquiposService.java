@@ -23,4 +23,6 @@ public interface EquiposService {
     public List<Partidos> getPartidos(int idEquipo);
 
     public List<FichajeJugador> getFichajes(int idEquipo);
+
+    public Torneos getByEquipo(int idEquipo);
 }   
