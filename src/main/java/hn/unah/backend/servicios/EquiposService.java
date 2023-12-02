@@ -5,6 +5,7 @@ import java.util.List;
 import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.FichajeJugador;
 import hn.unah.backend.modelos.Partidos;
+import hn.unah.backend.modelos.Torneos;
 
 public interface EquiposService {
     
