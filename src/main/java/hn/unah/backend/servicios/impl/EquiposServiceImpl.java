@@ -45,10 +45,15 @@ public class EquiposServiceImpl implements EquiposService{
     public Equipos update(int idEquipo, Equipos equipo) {
         Equipos equipoActualizar = this.equiposRepository.findById(idEquipo).get();
         if(equipoActualizar != null){
+            Torneos torneo = equipoActualizar.getTorneo();
+            Torneos torneoActualizar = torneosRepository.save(torneo);
             equipoActualizar.setNombre(equipo.getNombre());
             equipoActualizar.setAnioFundacion(equipo.getAnioFundacion());
             equipoActualizar.setPais(equipo.getPais());
             equipoActualizar.setUrllogo(equipo.getUrllogo());
+            equipoActualizar.setGrupo(equipo.getGrupo());
+            equipoActualizar.setTorneo(torneoActualizar);
+            equipoActualizar.setPuntos(equipo.getPuntos());
 
             return this.equiposRepository.save(equipoActualizar);
         }
@@ -70,6 +75,12 @@ public class EquiposServiceImpl implements EquiposService{
         return this.equiposRepository.findAll();
     }
 
+    @Override
+    public Torneos getByEquipo(int idEquipo){
+        Equipos equipo = this.equiposRepository.findById(idEquipo).get();
+        return this.torneosRepository.findById(equipo.getTorneo().getIdtorneo()).get();
+    }
+    
     @Override
     public int getCount() {
         List<Equipos> result = this.equiposRepository.findAll();
