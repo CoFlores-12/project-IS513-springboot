@@ -99,11 +99,6 @@ INSERT INTO `torneos` (`idTorneo`, `nombre`, `informacion`, `estado`, `fecha`, `
 --
 -- Volcado de datos para la tabla `equipos`
 --
-INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
-VALUES (1,'Barcelona','1998','España','03b0b151b42a829d87b3707368ec601d.jpg', '0', '1', "A1");
-
-INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
-VALUES (2, 'equipo 2', '2023', 'Honduras', 'blank.png', '0', '1', 'A2');
 
 -- Creacion 8 equipos
 INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`puntos`, `idTorneo`, `grupo`) 
@@ -141,3 +136,6 @@ INSERT INTO `partidos` (`idPartido`, `fecha`, `idTorneo`, `idEquipo1`, `idEquipo
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (1, '1', '1', '1'), (2, '1', '2', '2');
 
 INSERT INTO `fichajejugador` (`idfichaje`, `idPersona`, `idEquipoIn`, `idEquipoOut`, `precio`) VALUES (NULL, '1', '1', '2', '35000');
+
+
+INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (NULL, '1', '3', '3'), (NULL, '1', '4', '4'), (NULL, '1', '5', '5'), (NULL, '1', '6', '6'), (NULL, '1', '7', '7'), (NULL, '1', '8', '8');
