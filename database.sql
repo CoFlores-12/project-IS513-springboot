@@ -126,10 +126,30 @@ INSERT INTO `equipos` (`idEquipo`, `nombre`,`anioFundacion`,`pais`,`urllogo`,`pu
 VALUES (8, 'Getafe', '1983', 'España', 'Getafe_CF_S_A_D_-logo-ECC0F2A882-seeklogo.com.png', '0', '1', 'D2');
 
 
+INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('1', 'PORTERO');
+INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('2', 'DEFENSA');
+INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('3', 'CENTROCAMPISTA'), ('4', 'DELANTERO');
 
-INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('1', 'Jugador');
 
-INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `IdRol`, `foto`, `fecha`, `idequipo`) VALUES (NULL, 'test', 'test', '1', 'blank.png', '2023', '1');
+INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `idrol`, `fecha`, `foto`, `idequipo`) VALUES
+(1, 'Marcel', 'Lubik', 1, '2023-12-02', 'dfl-obj-j01dw0-dfl-clu-000010-dfl-sea-0001k7.webp', 1),
+(3, 'Niklas', 'Dorsch', 3, '2023-12-02', 'dfl-obj-0027bi-dfl-clu-000010-dfl-sea-0001k7.webp', 1),
+(4, 'Dion', 'Beljo', 4, '2023-12-02', 'dfl-obj-j01seg-dfl-clu-000010-dfl-sea-0001k7.webp', 1),
+(5, 'Robert', 'Gumny', 2, '2023-12-02', 'dfl-obj-002gjf-dfl-clu-000010-dfl-sea-0001k7.webp', 1),
+(6, 'Mikkel', 'Kaufmann', 1, '2023-12-02', 'dfl-obj-j01eaq-dfl-clu-00000v-dfl-sea-0001k7.webp', 2),
+(7, 'Jakob', 'Busk', 1, '2023-12-02', 'dfl-obj-0026tr-dfl-clu-00000v-dfl-sea-0001k7.webp', 2),
+(8, 'Christopher', 'Trimmel', 3, '2023-12-02', 'dfl-obj-0002fx-dfl-clu-00000v-dfl-sea-0001k7.webp', 2),
+(9, 'Marvin', 'Schwabe', 2, '1995-02-05', 'dfl-obj-0002he-dfl-clu-000008-dfl-sea-0001k7.webp', 3),
+(10, 'Rasmus', 'Carstensen', 2, '2000-10-11', 'dfl-obj-j01gtc-dfl-clu-000008-dfl-sea-0001k7.webp', 3),
+(11, 'Luca', 'Kilian', 3, '1999-01-09', 'dfl-obj-002g0r-dfl-clu-000008-dfl-sea-0001k7.webp', 3),
+(12, 'Timo', 'Hubers', 4, '1996-02-01', 'dfl-obj-0027b6-dfl-clu-000008-dfl-sea-0001k7.webp', 3),
+(13, 'Mohamed', 'simakan', 4, '2000-03-05', 'dfl-obj-j01cy1-dfl-clu-000017-dfl-sea-0001k7.webp', 4),
+(14, 'Josha', 'Vagnoman', 3, '2000-11-12', 'dfl-obj-0028ls-dfl-clu-00000d-dfl-sea-0001k7.webp', 5),
+(15, 'Manuel', 'Neuer', 1, '31986-02-07', 'dfl-obj-0000i4-dfl-clu-00000g-dfl-sea-0001k7.webp', 6),
+(16, 'Ko', 'Itakura', 2, '1997-01-27', 'dfl-obj-j01h9v-dfl-clu-000004-dfl-sea-0001k7.webp', 7),
+(17, 'Piero', 'Hincapie', 2, '2002-01-08', 'dfl-obj-j01k76-dfl-clu-00000b-dfl-sea-0001k7.webp', 8);
+
+
 
 INSERT INTO `partidos` (`idPartido`, `fecha`, `idTorneo`, `idEquipo1`, `idEquipo2`, `golesEquipo1`, `golesEquipo2`, `ganador`) VALUES (NULL, '2023-11-30', '1', '1', '1', '2', '1', '1');
 
@@ -141,4 +161,3 @@ INSERT INTO `fichajejugador` (`idfichaje`, `idPersona`, `idEquipoIn`, `idEquipoO
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (NULL, '1', '3', '3'), (NULL, '1', '4', '4'), (NULL, '1', '5', '5'), (NULL, '1', '6', '6'), (NULL, '1', '7', '7'), (NULL, '1', '8', '8');
 
 INSERT INTO `goles` (`id`, `idPartido`, `idEquipo`, `idPersona`) VALUES (NULL, '1', '4', '1');
-INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('2', 'Entrenador');
