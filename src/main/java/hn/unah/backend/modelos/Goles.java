@@ -2,6 +2,8 @@ package hn.unah.backend.modelos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +19,18 @@ public class Goles {
     @Id
     private int id;
     
-    //TODO relationships
-    private int idpartido;
+    @OneToOne
+    @JoinColumn(name = "idpartido", referencedColumnName = "idpartido")
+    private Partidos partido;
 
-    private int idequipo1;
+    @OneToOne
+    @JoinColumn(name = "idequipo", referencedColumnName = "idequipo")
+    private Equipos equipo;
 
-    private int idpersona;
+
+    @OneToOne
+    @JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
+    private Personas persona;
+
     
 }

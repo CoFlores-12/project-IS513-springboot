@@ -186,25 +186,3 @@ public class TorneosServiceImpl implements TorneosService {
     }
     
 }
-
-/*
- * 
-  public String reservar(ReservaDTO reserva) {
- *      Cliente cliente = this.clienteRepository.findById(equiposdelTorneo.getidCliente()).get();
-        Vehiculo vehiculo = this.vehiculoRepository.findById(reserva.getidVehiculo()).get();
-        if (cliente == null) {
-            return "Cliente no existe";
-        }
-        if (vehiculo == null) {
-            return "vehiculo no existe";
-        }
-
-        reservaDB.setIdcliente(clirnte.getidCliente());
-        reservaDB.setIdvehiculo(vehiculo.getidVehiculo());
-        reservaDB.setDias(reserva.getDias());
-        reservaDB.setTotal((reserva.getDias() * vehiculo.getIdTipoVehiculo().getPrecioXHora()));
-        this.reservaRepository.save(reservaDB);
-
-
-        return "Reserva Realizada";
- */

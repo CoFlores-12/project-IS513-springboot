@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,13 +33,17 @@ public class Personas {
     
     private String nombre;
     private String apellido;
+    private String fecha;
 
     private String foto;
 
-@JsonIgnore
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="idrol",referencedColumnName = "idRol")
     private Rols idrol;
+
+    @OneToOne
+    @JoinColumn(name="idequipo",referencedColumnName = "idequipo")
+    private Equipos idequipo;
 
 
 }

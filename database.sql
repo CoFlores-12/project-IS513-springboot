@@ -139,3 +139,6 @@ INSERT INTO `fichajejugador` (`idfichaje`, `idPersona`, `idEquipoIn`, `idEquipoO
 
 
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (NULL, '1', '3', '3'), (NULL, '1', '4', '4'), (NULL, '1', '5', '5'), (NULL, '1', '6', '6'), (NULL, '1', '7', '7'), (NULL, '1', '8', '8');
+
+INSERT INTO `goles` (`id`, `idPartido`, `idEquipo`, `idPersona`) VALUES (NULL, '1', '4', '1');
+INSERT INTO `rols` (`idRol`, `descripcion`) VALUES ('2', 'Entrenador');

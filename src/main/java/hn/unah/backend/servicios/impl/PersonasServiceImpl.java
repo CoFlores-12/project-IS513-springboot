@@ -5,9 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import hn.unah.backend.modelos.Equipos;
+import hn.unah.backend.modelos.FichajeJugador;
+import hn.unah.backend.modelos.Goles;
+import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Personas;
+import hn.unah.backend.modelos.PersonasDTO;
 import hn.unah.backend.modelos.Rols;
+import hn.unah.backend.modelos.TransfersDTO;
 import hn.unah.backend.repositorios.EquiposRepository;
+import hn.unah.backend.repositorios.FichajeRepository;
+import hn.unah.backend.repositorios.Golesrepository;
+import hn.unah.backend.repositorios.PartidosRepository;
 import hn.unah.backend.repositorios.PersonasRepository;
 import hn.unah.backend.repositorios.RolsRepository;
 import hn.unah.backend.servicios.PersonasService;
@@ -19,17 +28,27 @@ public class PersonasServiceImpl implements PersonasService {
     private PersonasRepository personasRepository;
     @Autowired
     private RolsRepository rolsRepository;
-
     @Autowired
     private EquiposRepository equiposRepository;
+    @Autowired
+    private Golesrepository golesrepository;
+    @Autowired
+    private PartidosRepository partidosRepository;
+    @Autowired
+    private FichajeRepository fichajeJugador;
 
     @Override
-    public Personas create(Personas personas ,int idRol) {
-        Rols rols =this.rolsRepository.findById(idRol).get();
-        personas.setIdrol(rols);
-
-        //return personas;
-        return this.personasRepository.save(personas);
+    public Personas create(PersonasDTO personas) {
+        Personas personaSave = new Personas();
+        Equipos equipo = this.equiposRepository.findById(personas.idequipo).get();
+        Rols rol = this.rolsRepository.findById(personas.idrol).get();
+        personaSave.setNombre(personas.nombre);
+        personaSave.setApellido(personas.apellido);
+        personaSave.setFecha(personas.fecha);
+        personaSave.setFoto(personas.foto);
+        personaSave.setIdequipo(equipo);
+        personaSave.setIdrol(rol);
+        return this.personasRepository.save(personaSave);
     }
 
     @Override
@@ -67,13 +86,6 @@ public class PersonasServiceImpl implements PersonasService {
         return this.personasRepository.findAll();
     }
 
-    /*
-     * @Override
-    public List<Personas> getByEquipo(int idEquipo) {
-        return this.personasRepository.findByIdequipo(idEquipo);
-    }
-     */
-
     @Override
     public int getCount() {
         List<Personas> people = this.personasRepository.findAll();
@@ -82,8 +94,48 @@ public class PersonasServiceImpl implements PersonasService {
 
     @Override
     public List<Personas> getByEquipo(int idEquipo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByEquipo'");
+        Equipos equipo = this.equiposRepository.findById(idEquipo).get();
+        return this.personasRepository.findByIdequipo(equipo);
+    }
+
+    @Override
+    public List<Goles> getGoles(int id) {
+        Personas persona = this.personasRepository.findById(id).get();
+        return this.golesrepository.findByPersona(persona);
+    }
+
+    @Override
+    public List<Partidos> getPartidos(int id) {
+        Personas persona = this.personasRepository.findById(id).get();
+        Equipos equipo = this.equiposRepository.findById(persona.getIdequipo().getIdEquipo()).get();
+        return this.partidosRepository.findByEquipo1OrEquipo2(equipo, equipo);
+    }
+
+    @Override
+    public List<FichajeJugador> getFichajes(int id) {
+        Personas persona = this.personasRepository.findById(id).get();
+        return this.fichajeJugador.findByIdpersona(persona);
+    }
+
+    @Override
+    public List<Rols> getRoles() {
+        return this.rolsRepository.findAll();
+    }
+
+    @Override
+    public FichajeJugador transferir(TransfersDTO trasnferir) {
+        Personas persona = this.personasRepository.findById(trasnferir.idpersona).get();
+        Equipos equipo = this.equiposRepository.findById(trasnferir.idequipoout).get();
+        Equipos equipo2 = this.equiposRepository.findById(trasnferir.idequipoin).get();
+        persona.setIdequipo(equipo2);
+        this.personasRepository.save(persona);
+        FichajeJugador fichaje = new FichajeJugador();
+        fichaje.setIdequipoin(equipo2);
+        fichaje.setIdequipoout(equipo);
+        fichaje.setIdpersona(persona);
+        fichaje.setPrecio(trasnferir.precio);
+        this.fichajeJugador.save(fichaje);
+        return fichaje;
     }
     
 }

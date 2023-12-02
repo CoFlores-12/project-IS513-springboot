@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hn.unah.backend.modelos.FichajeJugador;
+import hn.unah.backend.modelos.Goles;
+import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Personas;
-
+import hn.unah.backend.modelos.PersonasDTO;
+import hn.unah.backend.modelos.Rols;
+import hn.unah.backend.modelos.TransfersDTO;
 import hn.unah.backend.servicios.impl.PersonasServiceImpl;
 
 @RestController
@@ -27,10 +32,38 @@ public class PersonasController {
         return this.personasServiceImpl.getAll();
     }
 
-    
-    @PostMapping("/crear/{idRol}")
-    public Personas crear(@RequestBody Personas persona, @PathVariable int idRol){
-        return this.personasServiceImpl.create(persona, idRol);
+    @GetMapping("/get/{id}")
+    public Personas get(@PathVariable int id){
+        return this.personasServiceImpl.get(id);
+    }
+
+    @GetMapping("/goles/{id}")
+    public List<Goles> getGoles(@PathVariable int id){
+        return this.personasServiceImpl.getGoles(id);
+    }
+     @GetMapping("/getRoles")
+    public List<Rols> getRoles(){
+        return this.personasServiceImpl.getRoles();
+    }
+
+    @GetMapping("/partidos/{id}")
+    public List<Partidos> getPArtidos(@PathVariable int id){
+        return this.personasServiceImpl.getPartidos(id);
+    }
+
+    @PostMapping("/transferir")
+    public FichajeJugador crear(@RequestBody TransfersDTO transferir){
+        return this.personasServiceImpl.transferir(transferir);
+    }
+
+    @GetMapping("/transfers/{id}")
+    public List<FichajeJugador> getTransfers(@PathVariable int id){
+        return this.personasServiceImpl.getFichajes(id);
+    }
+
+    @PostMapping("/crear")
+    public Personas crear(@RequestBody PersonasDTO persona){
+        return this.personasServiceImpl.create(persona);
     }
     @GetMapping("/getByEquipo/{idEquipo}")
     public List<Personas> getAll(@PathVariable int idEquipo) {
