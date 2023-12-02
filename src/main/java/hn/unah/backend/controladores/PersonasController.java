@@ -28,8 +28,8 @@ public class PersonasController {
     }
 
     
-    @PostMapping("/crear")
-    public Personas crear(@RequestBody Personas persona, int idRol){
+    @PostMapping("/crear/{idRol}")
+    public Personas crear(@RequestBody Personas persona, @PathVariable int idRol){
         return this.personasServiceImpl.create(persona, idRol);
     }
     @GetMapping("/getByEquipo/{idEquipo}")

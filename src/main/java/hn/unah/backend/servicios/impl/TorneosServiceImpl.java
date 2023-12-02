@@ -13,6 +13,7 @@ import hn.unah.backend.modelos.Clasificatoria;
 import hn.unah.backend.modelos.Equipos;
 import hn.unah.backend.modelos.Goles;
 import hn.unah.backend.modelos.Partidos;
+import hn.unah.backend.modelos.Personas;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.servicios.TorneosService;
 
@@ -137,7 +138,7 @@ public class TorneosServiceImpl implements TorneosService {
             partidosA1A2.setGanador(equipoGrupoA1);
             equipoGrupoA1.setPuntos(equipoGrupoA1.getPuntos()+3);
             //TODO get all jugadores del equipo
-           // List<Personas> jugadores = null;
+           List<Personas> jugadores = null;
             for (int index = 0; index < golesA1; index++) {
                 Goles gol = new Goles();
                 //gol.setIdequipo1(equipoGrupoA1);
@@ -152,7 +153,7 @@ public class TorneosServiceImpl implements TorneosService {
             equipoGrupoA2.setPuntos(equipoGrupoA2.getPuntos()+3);
             this.equiposRepository.save(equipoGrupoA2);
             //TODO get players
-           // List<Personas> jugadores = null;
+           List<Personas> jugadores = null;
             for (int index = 0; index < golesA2; index++) {
                 Goles gol = new Goles();
                // gol.setIdequipo1(equipoGrupoA2);
@@ -173,7 +174,6 @@ public class TorneosServiceImpl implements TorneosService {
        }if (equipoGrupoA1 == null && equipoGrupoA2 == null) {
             //TODO clasificatoria posicion 9 is null
        }
-
 
         return torneo;
     }
