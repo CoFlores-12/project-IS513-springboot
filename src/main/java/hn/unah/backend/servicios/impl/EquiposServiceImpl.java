@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import hn.unah.backend.modelos.Equipos;
+import hn.unah.backend.modelos.FichajeJugador;
 import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.modelos.Torneos;
 import hn.unah.backend.repositorios.EquiposRepository;
+import hn.unah.backend.repositorios.FichajeRepository;
 import hn.unah.backend.repositorios.PartidosRepository;
 import hn.unah.backend.repositorios.TorneosRepository;
 import hn.unah.backend.servicios.EquiposService;
@@ -23,6 +25,8 @@ public class EquiposServiceImpl implements EquiposService{
     private TorneosRepository torneosRepository;
     @Autowired
     private PartidosRepository partidosRepository;
+    @Autowired
+    private FichajeRepository fichajeRepository;
 
     @Override
     public Equipos create(Equipos equipo, int idTorneo) {
@@ -77,5 +81,12 @@ public class EquiposServiceImpl implements EquiposService{
         Equipos equipo = this.equiposRepository.findById(idEquipo).get();
         List<Partidos> result = this.partidosRepository.findByEquipo1OrEquipo2(equipo, equipo);
         return  result;
+    }
+
+    @Override
+    public List<FichajeJugador> getFichajes(int idEquipo) {
+        Equipos equipo = this.equiposRepository.findById(idEquipo).get();
+        List<FichajeJugador> result = this.fichajeRepository.findByIdequipoinOrIdequipoout(equipo, equipo);
+        return result;
     }
 }

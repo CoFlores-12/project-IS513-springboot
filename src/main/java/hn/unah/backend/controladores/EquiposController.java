@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hn.unah.backend.modelos.Equipos;
+import hn.unah.backend.modelos.FichajeJugador;
 import hn.unah.backend.modelos.Partidos;
 import hn.unah.backend.servicios.impl.EquiposServiceImpl;
 
@@ -51,6 +52,11 @@ public class EquiposController {
     @GetMapping("/getPartidos/{idEquipo}")
     public List<Partidos> getPartidos(@PathVariable int idEquipo) {
         return this.equiposServiceImpl.getPartidos(idEquipo);
+    }
+
+    @GetMapping("/getFichajes/{idEquipo}")
+    public List<FichajeJugador> getFichajes(@PathVariable int idEquipo) {
+        return this.equiposServiceImpl.getFichajes(idEquipo);
     }
 
     @GetMapping("/getCount")

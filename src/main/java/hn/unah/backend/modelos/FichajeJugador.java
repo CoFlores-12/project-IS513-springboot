@@ -29,15 +29,16 @@ public class FichajeJugador {
 
     @OneToOne
     @JoinColumn(name="idpersona")
-    private Personas idPersonas;
+    private Personas idpersona;
 
     @OneToOne
-    @JoinColumn(name="idequipoin")
+    @JoinColumn(name="idequipoin", referencedColumnName = "idequipo")
     private Equipos idequipoin;
     
     @OneToOne
-    @JoinColumn(name="idequipoout")
+    @JoinColumn(name="idequipoout", referencedColumnName = "idequipo")
     private Equipos idequipoout;
 
 
+    private int precio;
 }
