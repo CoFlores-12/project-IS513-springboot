@@ -149,15 +149,8 @@ INSERT INTO `personas` (`idPersona`, `nombre`, `apellido`, `idrol`, `fecha`, `fo
 (16, 'Ko', 'Itakura', 2, '1997-01-27', 'dfl-obj-j01h9v-dfl-clu-000004-dfl-sea-0001k7.webp', 7),
 (17, 'Piero', 'Hincapie', 2, '2002-01-08', 'dfl-obj-j01k76-dfl-clu-00000b-dfl-sea-0001k7.webp', 8);
 
-
-
-INSERT INTO `partidos` (`idPartido`, `fecha`, `idTorneo`, `idEquipo1`, `idEquipo2`, `golesEquipo1`, `golesEquipo2`, `ganador`) VALUES (NULL, '2023-11-30', '1', '1', '1', '2', '1', '1');
-
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (1, '1', '1', '1'), (2, '1', '2', '2');
 
 INSERT INTO `fichajejugador` (`idfichaje`, `idPersona`, `idEquipoIn`, `idEquipoOut`, `precio`) VALUES (NULL, '1', '1', '2', '35000');
 
-
 INSERT INTO `clasificatoria` (`id`, `idTorneo`, `idEquipo`, `posicion`) VALUES (NULL, '1', '3', '3'), (NULL, '1', '4', '4'), (NULL, '1', '5', '5'), (NULL, '1', '6', '6'), (NULL, '1', '7', '7'), (NULL, '1', '8', '8');
-
-INSERT INTO `goles` (`id`, `idPartido`, `idEquipo`, `idPersona`) VALUES (NULL, '1', '4', '1');
