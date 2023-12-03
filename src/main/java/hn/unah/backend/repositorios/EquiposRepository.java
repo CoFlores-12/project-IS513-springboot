@@ -10,4 +10,5 @@ import hn.unah.backend.modelos.Torneos;
 
 public interface EquiposRepository extends JpaRepository<Equipos, Integer>{
     List<Equipos> findByTorneo(Torneos torneo);
+    List<Equipos> findByTorneoOrderByPuntosDesc(Torneos torneo);
 }
